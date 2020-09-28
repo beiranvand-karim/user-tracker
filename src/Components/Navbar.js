@@ -20,6 +20,7 @@ export default function NavBar() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
     return (
         <div className={classes.root}>
             <TabContext value={value}>
