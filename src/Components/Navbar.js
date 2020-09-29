@@ -5,11 +5,11 @@ import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import styled from 'styled-components';
 
-const StyledAppBar = styled(AppBar)`
+const AppBarStyled = styled(AppBar)`
         background : #222;
     `;
 
-const Div = styled('div')`
+const TabContextStyled = styled(TabContext)`
         flex-grow: 1;
 `
 
@@ -22,16 +22,14 @@ export default function NavBar() {
     };
 
     return (
-        <Div>
-            <TabContext value={value}>
-                <StyledAppBar position="static">
-                    <TabList onChange={handleChange}>
-                        <Tab label="Users" value="1"/>
-                        <Tab label="Products" value="2"/>
-                        <Tab label="Manufacturers" value="3"/>
-                    </TabList>
-                </StyledAppBar>
-            </TabContext>
-        </Div>
+        <TabContextStyled value={value}>
+            <AppBarStyled position="static">
+                <TabList onChange={handleChange}>
+                    <Tab label="Users" value="1"/>
+                    <Tab label="Products" value="2"/>
+                    <Tab label="Manufacturers" value="3"/>
+                </TabList>
+            </AppBarStyled>
+        </TabContextStyled>
     );
 }
