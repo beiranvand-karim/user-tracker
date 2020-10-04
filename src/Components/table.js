@@ -13,8 +13,9 @@ const TableHeadCellStyled = styled(TableCell)`
         background: #CED2AA;  
         font-size : large;
 `;
+
 const TableBodyCellStyled = styled(TableCell)`
-        font-size: 14;
+        font-size: 14px;
 `;
 
 const TableStyled = styled(Table)`
@@ -24,10 +25,9 @@ const TableStyled = styled(Table)`
 
 export default function ListOfUsers() {
 
-    const [rows] = useState([])
+    const [users] = useState([])
 
     return (
-        <div>
             <TableContainer component={Paper}>
                 <TableStyled aria-label="customized table">
                     <TableHead>
@@ -38,23 +38,21 @@ export default function ListOfUsers() {
                             <TableHeadCellStyled align="right">Date Modified</TableHeadCellStyled>
                         </TableRow>
                     </TableHead>
-                    {rows.map((row, index) => (
+                    {users.map((user, index) => (
                         <TableBody>
                             <TableRow key={index}>
-                                <TableBodyCellStyled component="th" scope="row"><Checkbox
-                                    color={"default"}/> {row.firstName + '  ' + row.lastName}
+                                <TableBodyCellStyled component="th" scope="row">
+                                    <Checkbox color="default"/>
+                                    {user.firstName + '  ' + user.lastName}
                                 </TableBodyCellStyled>
-                                <TableBodyCellStyled align="right">{row.Email}</TableBodyCellStyled>
-                                <TableBodyCellStyled align="right">{row.DateCreated}</TableBodyCellStyled>
-                                <TableBodyCellStyled align="right">{row.DateModified}</TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.email}</TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.dateCreated}</TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.dateModified}</TableBodyCellStyled>
                             </TableRow>
                         </TableBody>
                     ))}
                 </TableStyled>
             </TableContainer>
-            <div style={{padding: "20px", margin: "20px"}}>
-            </div>
-        </div>
     )
         ;
 }
