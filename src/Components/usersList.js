@@ -18,46 +18,54 @@ const TableBodyCellStyled = styled(TableCell)`
         font-size: 14px;
 `;
 
+const TableContainerStyled = styled(TableContainer)`
+    margin-top:200;
+    margin-left:200;
+    margin-right:100;
+`;
+
 const TableStyled = styled(Table)`
     min-width: 100px;
-    margin-top: 10px;
+    margin-top:10;
+`;
+
+const Container = styled.div`
+     display : flex;
+     align-items : center;
+     justify-content: center;
 `;
 
 export default function UsersList() {
 
-    const [users] = useState([{
-        firstName: null,
-        lastName: null,
-        email: null,
-        dateCreated: null,
-        dateModified: null,
-    }]);
+    const [users] = useState(null);
 
     return (
-        <TableContainer component={Paper}>
-            <TableStyled aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <TableHeadCellStyled>Name</TableHeadCellStyled>
-                        <TableHeadCellStyled align="right">Email</TableHeadCellStyled>
-                        <TableHeadCellStyled align="right">Date Created</TableHeadCellStyled>
-                        <TableHeadCellStyled align="right">Date Modified</TableHeadCellStyled>
-                    </TableRow>
-                </TableHead>
-                {users.map((user, index) => (
-                    <TableBody>
-                        <TableRow key={index}>
-                            <TableBodyCellStyled component="th" scope="row">
-                                <Checkbox color="default"/>
-                                {user.firstName}{user.lastName}
-                            </TableBodyCellStyled>
-                            <TableBodyCellStyled align="right">{user.email}</TableBodyCellStyled>
-                            <TableBodyCellStyled align="right">{user.dateCreated}</TableBodyCellStyled>
-                            <TableBodyCellStyled align="right">{user.dateModified}</TableBodyCellStyled>
+        <Container>
+            <TableContainerStyled component={Paper}>
+                <TableStyled aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <TableHeadCellStyled>Name</TableHeadCellStyled>
+                            <TableHeadCellStyled align="right">Email</TableHeadCellStyled>
+                            <TableHeadCellStyled align="right">Date Created</TableHeadCellStyled>
+                            <TableHeadCellStyled align="right">Date Modified</TableHeadCellStyled>
                         </TableRow>
-                    </TableBody>
-                ))}
-            </TableStyled>
-        </TableContainer>
+                    </TableHead>
+                    {users && users.map((user, index) => (
+                        <TableBody>
+                            <TableRow key={index}>
+                                <TableBodyCellStyled component="th" scope="row">
+                                    <Checkbox color="default"/>
+                                    {user.firstName}{user.lastName}
+                                </TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.email}</TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.dateCreated}</TableBodyCellStyled>
+                                <TableBodyCellStyled align="right">{user.dateModified}</TableBodyCellStyled>
+                            </TableRow>
+                        </TableBody>
+                    ))}
+                </TableStyled>
+            </TableContainerStyled>
+        </Container>
     );
 }
