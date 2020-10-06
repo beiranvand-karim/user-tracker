@@ -23,12 +23,10 @@ const TableContainerStyled = styled(TableContainer)`
 	margin-left: 200px;
 	margin-right: 200px;
 `
-
 const TableStyled = styled(Table)`
 	min-width: 100px;
 	margin-top: 10px;
 `
-
 const Container = styled.div`
 	display: flex;
 	align-items: center;
