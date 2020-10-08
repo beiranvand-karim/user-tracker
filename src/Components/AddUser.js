@@ -28,47 +28,31 @@ const ContainerButton = styled.div`
     margin-top:40px;
 `;
 
-function AddUser({addUser}) {
+function AddUser() {
 
-    const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
-        emailAddress: '',
-        dateCreated: '',
-    });
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [emailAddress, setEmailAddress] = useState('');
+    const [dateCreated, setDateCreated] = useState('');
 
     const cancel = (e) => {
         e.preventDefault();
-        setUser({
-            firstName: '',
-            lastName: '',
-            emailAddress: '',
-            dateCreated: '',
-        });
-    }
-
-    const handleChange = (event) => {
-        setUser({
-                ...user,
-                [event.target.name]: event.target.value,
-                dateCreated: new Date().toLocaleTimeString(),
-            }
-        );
+        setFirstName('');
+        setLastName('');
+        setEmailAddress('');
+        setDateCreated('');
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!user) return;
-        // addUser(user);
-        setUser({
-            firstName: '',
-            lastName: '',
-            emailAddress: '',
-            dateCreated: '',
-        });
+        setFirstName('');
+        setLastName('');
+        setEmailAddress('');
+        setDateCreated('');
     }
+
     const handleEmptyError = () => {
-        if ((user.firstName.length <= 2) || (user.lastName.length <= 2) || (user.emailAddress.length <= 10)) {
+        if ((firstName.length <= 2) || (lastName.length <= 2) || (emailAddress.length <= 10)) {
             return false;
         } else {
             return true;
@@ -81,19 +65,18 @@ function AddUser({addUser}) {
                 Add User
                 <div>
                     <InputLabelStyled>First name</InputLabelStyled>
-                    <TextFieldStyled value={user.firstName} variant="outlined" name="firstName"
-                                     onChange={event => handleChange(event)}/>
+                    <TextFieldStyled value={firstName} variant="outlined" name="firstName"
+                                     onChange={e => setFirstName(e.target.value)}/>
                 </div>
                 <div>
                     <InputLabelStyled>Last name</InputLabelStyled>
-                    <TextFieldStyled value={user.lastName} variant="outlined" name="lastName"
-                                     onChange={event => handleChange(event)}/>
+                    <TextFieldStyled value={lastName} variant="outlined" name="lastName"
+                                     onChange={e => setLastName(e.target.value)}/>
                 </div>
-                <div>
-                    <InputLabelStyled>Email</InputLabelStyled>
-                    <TextFieldStyled value={user.emailAddress} variant="outlined"
+                <div><InputLabelStyled>Email</InputLabelStyled>
+                    <TextFieldStyled value={emailAddress} variant="outlined"
                                      name="emailAddress"
-                                     onChange={event => handleChange(event)}/>
+                                     onChange={e => setEmailAddress(e.target.value)}/>
                 </div>
                 <ContainerButton>
                     <Button disabled={handleEmptyError() === false} onClick={handleSubmit}
