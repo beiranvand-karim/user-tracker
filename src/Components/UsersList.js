@@ -19,10 +19,12 @@ const TableBodyCellStyled = styled(TableCell)`
 `
 
 const TableContainerStyled = styled(TableContainer)`
+<<<<<<< HEAD
 	margin-top: 100px;
 	margin-left: 200px;
 	margin-right: 200px;
 `
+
 const TableStyled = styled(Table)`
 	min-width: 100px;
 	margin-top: 10px;

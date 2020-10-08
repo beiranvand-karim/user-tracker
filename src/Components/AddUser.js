@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -26,88 +26,85 @@ const ContainerButton = styled.div`
     display : flex;
     justify-content: space-between;
     margin-top:40px;
-
 `;
 
-class AddUser extends Component {
+function AddUser({addUser}) {
 
-    constructor(props) {
-        super(props);
-    }
-
-    state = ({
+    const [user, setUser] = useState({
         firstName: '',
         lastName: '',
         emailAddress: '',
         dateCreated: '',
     });
 
-
-    cancel = (e) => {
+    const cancel = (e) => {
         e.preventDefault();
-        console.log(this.state.length);
-        this.state.firstName = '';
-        this.state.lastName = '';
-        this.state.emailAddress = '';
-        this.state.dateCreated = '';
-        console.log(this.state);
+        setUser({
+            firstName: '',
+            lastName: '',
+            emailAddress: '',
+            dateCreated: '',
+        });
     }
 
-    handleChange = (event) => {
-        this.setState({
+    const handleChange = (event) => {
+        setUser({
+                ...user,
                 [event.target.name]: event.target.value,
                 dateCreated: new Date().toLocaleTimeString(),
             }
         );
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.handleEmptyError());
-        this.props.add(this.state);
-
+        if (!user) return;
+        // addUser(user);
+        setUser({
+            firstName: '',
+            lastName: '',
+            emailAddress: '',
+            dateCreated: '',
+        });
     }
-
-    handleEmptyError = () => {
-        if (this.state.firstName.length <= 3) {
+    const handleEmptyError = () => {
+        if ((user.firstName.length <= 2) || (user.lastName.length <= 2) || (user.emailAddress.length <= 10)) {
             return false;
         } else {
             return true;
         }
     }
 
-    render() {
-        return (
-            <ContainerStyled>
-                <FormGroup>
-                    Add User
-                    <div>
-                        <InputLabelStyled>First name</InputLabelStyled>
-                        <TextFieldStyled variant="outlined" name="firstName"
-                                         onChange={event => this.handleChange(event)}/>
-                    </div>
-                    <div>
-                        <InputLabelStyled>Last name</InputLabelStyled>
-                        <TextFieldStyled variant="outlined" name="lastName"
-                                         onChange={event => this.handleChange(event)}/>
-                    </div>
-                    <div>
-                        <InputLabelStyled>Email</InputLabelStyled>
-                        <TextFieldStyled variant="outlined"
-                                         name="emailAddress"
-                                         onChange={event => this.handleChange(event)}/>
-                    </div>
-                    <ContainerButton>
-                        <Button disabled={this.handleEmptyError() == false} onClick={this.handleSubmit}
-                                variant="contained" color="primary"
-                                type="submit">submit</Button>
-                        <Button onClick={this.cancel} variant="contained"
-                                color="secondary">cancel</Button>
-                    </ContainerButton>
-                </FormGroup>
-            </ContainerStyled>
-        )
-    }
+    return (
+        <ContainerStyled>
+            <FormGroup>
+                Add User
+                <div>
+                    <InputLabelStyled>First name</InputLabelStyled>
+                    <TextFieldStyled value={user.firstName} variant="outlined" name="firstName"
+                                     onChange={event => handleChange(event)}/>
+                </div>
+                <div>
+                    <InputLabelStyled>Last name</InputLabelStyled>
+                    <TextFieldStyled value={user.lastName} variant="outlined" name="lastName"
+                                     onChange={event => handleChange(event)}/>
+                </div>
+                <div>
+                    <InputLabelStyled>Email</InputLabelStyled>
+                    <TextFieldStyled value={user.emailAddress} variant="outlined"
+                                     name="emailAddress"
+                                     onChange={event => handleChange(event)}/>
+                </div>
+                <ContainerButton>
+                    <Button disabled={handleEmptyError() === false} onClick={handleSubmit}
+                            variant="contained" color="primary"
+                            type="submit">submit</Button>
+                    <Button onClick={cancel} variant="contained"
+                            color="secondary">cancel</Button>
+                </ContainerButton>
+            </FormGroup>
+        </ContainerStyled>
+    )
 }
 
 export default AddUser;
