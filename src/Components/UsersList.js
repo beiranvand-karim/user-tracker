@@ -19,14 +19,14 @@ const TableBodyCellStyled = styled(TableCell)`
 `;
 
 const TableContainerStyled = styled(TableContainer)`
-    margin-top:200;
-    margin-left:200;
-    margin-right:100;
+    margin-top:200px;
+    margin-left:200px;
+    margin-right:100px;
 `;
 
 const TableStyled = styled(Table)`
     min-width: 100px;
-    margin-top:10;
+    margin-top:10px;
 `;
 
 const Container = styled.div`
