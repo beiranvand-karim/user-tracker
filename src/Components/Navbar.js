@@ -4,6 +4,8 @@ import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import styled from 'styled-components';
+import TabPanel from "@material-ui/lab/TabPanel";
+import FloatButton from "./Floating-Action-Bottun";
 
 const AppBarStyled = styled(AppBar)`
         background : #222;
@@ -30,6 +32,9 @@ export default function NavBar() {
                     <Tab label="Manufacturers" value="3"/>
                 </TabList>
             </AppBarStyled>
+            <TabPanel value="1">
+                <FloatButton/>
+            </TabPanel>
         </TabContextStyled>
     );
 }
