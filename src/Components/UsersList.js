@@ -19,9 +19,9 @@ const TableBodyCellStyled = styled(TableCell)`
 `;
 
 const TableContainerStyled = styled(TableContainer)`
-    margin-top:200px;
+    margin-top:100px;
     margin-left:200px;
-    margin-right:100px;
+    margin-right:200px;
 `;
 
 const TableStyled = styled(Table)`
