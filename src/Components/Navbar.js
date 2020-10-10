@@ -5,7 +5,8 @@ import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import styled from 'styled-components';
 import TabPanel from "@material-ui/lab/TabPanel";
-import FloatButton from "./Floating-Action-Bottun";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from '@material-ui/icons/Add';
 
 const AppBarStyled = styled(AppBar)`
         background : #222;
@@ -13,7 +14,13 @@ const AppBarStyled = styled(AppBar)`
 
 const TabContextStyled = styled(TabContext)`
         flex-grow: 1;
-`
+`;
+
+const FabStyled = styled(Fab)`
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+`;
 
 export default function NavBar() {
 
@@ -33,7 +40,9 @@ export default function NavBar() {
                 </TabList>
             </AppBarStyled>
             <TabPanel value="1">
-                <FloatButton/>
+                <FabStyled color="primary">
+                    <AddIcon/>
+                </FabStyled>
             </TabPanel>
         </TabContextStyled>
     );
