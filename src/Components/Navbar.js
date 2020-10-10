@@ -24,14 +24,14 @@ const FabStyled = styled(Fab)`
 
 export default function NavBar() {
 
-    const [value, setValue] = React.useState('1');
+    const [tabIndex, setTabIndex] = React.useState(String(1));
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        setTabIndex(newValue);
     };
 
     return (
-        <TabContextStyled value={value}>
+        <TabContextStyled value={tabIndex}>
             <AppBarStyled position="static">
                 <TabList onChange={handleChange}>
                     <Tab label="Users" value="1"/>
