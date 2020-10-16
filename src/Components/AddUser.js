@@ -18,14 +18,13 @@ const TextFieldStyled = styled(TextField)`
 `;
 
 const InputLabelStyled = styled(InputLabel)`
-    text-align: left;
-    margin-left: 125px;
+    position : absolute;
+    left : 70px;
 `;
 
 const ContainerButton = styled.div`
     display : flex;
-    justify-content: space-between;
-    margin-top:40px;
+    justify-content: space-between;    
 `;
 
 function AddUser() {
