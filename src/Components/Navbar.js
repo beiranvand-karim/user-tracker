@@ -12,9 +12,11 @@ import UsersList from './UsersList'
 const AppBarStyled = styled(AppBar)`
 	background: #222;
 `
+
 const TabContextStyled = styled(TabContext)`
 	flex-grow: 1;
 `
+
 const FabStyled = styled(Fab)`
 	position: absolute;
 	right: 16px;
