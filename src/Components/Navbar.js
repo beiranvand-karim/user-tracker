@@ -29,11 +29,7 @@ export default function NavBar() {
 	return (
 		<TabContextStyled value={tabIndex}>
 			<AppBarStyled position='static'>
-				<TabList
-					onChange={(event, newValue) => {
-						setTabIndex(newValue)
-					}}
-				>
+				<TabList onChange={(event, newValue) => setTabIndex(newValue)}>
 					<Tab label='Users' value='1' />
 					<Tab label='Products' value='2' />
 					<Tab label='Manufacturers' value='3' />
