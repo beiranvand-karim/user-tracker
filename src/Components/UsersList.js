@@ -35,9 +35,7 @@ const Container = styled.div`
 	justify-content: center;
 `
 
-export default function UsersList() {
-	const [users] = useState(null)
-
+export default function UsersList({ users }) {
 	return (
 		<Container>
 			<TableContainerStyled component={Paper}>
@@ -60,11 +58,11 @@ export default function UsersList() {
 								<TableRow key={index}>
 									<TableBodyCellStyled component='th' scope='row'>
 										<Checkbox color='default' />
-										{user.firstName}
+										{user.firstName + ' '}
 										{user.lastName}
 									</TableBodyCellStyled>
 									<TableBodyCellStyled align='right'>
-										{user.email}
+										{user.emailAddress}
 									</TableBodyCellStyled>
 									<TableBodyCellStyled align='right'>
 										{user.dateCreated}

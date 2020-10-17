@@ -11,27 +11,19 @@ const FabStyled = styled(Fab)`
 	bottom: 16px;
 `
 
-export default function FabButton() {
+export default function FabButton({ setUsers }) {
 	const [showDialog, setShowDialog] = useState(false)
-
-	const handleClose = () => {
-		setShowDialog(false)
-		return
-	}
-
-	const handleOpen = (e) => {
-		e.preventDefault()
-		setShowDialog(true)
-		return
-	}
 
 	return (
 		<div>
-			<FabStyled onClick={handleOpen} color='primary' variant='extended'>
+			<FabStyled onClick={(e) => setShowDialog(true)} color='primary'>
 				<AddIcon />
 			</FabStyled>
 			<Dialog open={showDialog}>
-				<AddUser handleCancel={handleClose} />
+				<AddUser
+					setUsers={setUsers}
+					handleCancel={(e) => setShowDialog(false)}
+				/>
 			</Dialog>
 		</div>
 	)

@@ -31,7 +31,7 @@ const FormGroupStyled = styled(FormGroup)`
 	padding: 15px;
 `
 
-function AddUser({ handleCancel }) {
+function AddUser({ handleCancel, setUsers }) {
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName] = useState('')
 	const [emailAddress, setEmailAddress] = useState('')
@@ -48,6 +48,10 @@ function AddUser({ handleCancel }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		setUsers((users) => {
+			if (!users) return [{ firstName, lastName, emailAddress, dateCreated }]
+			return [...users, { firstName, lastName, emailAddress, dateCreated }]
+		})
 		setFirstName('')
 		setLastName('')
 		setEmailAddress('')
