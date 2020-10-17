@@ -27,7 +27,7 @@ const ContainerButton = styled.div`
 	justify-content: space-between;
 `
 
-function AddUser() {
+function AddUser({ handleCancel }) {
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName] = useState('')
 	const [emailAddress, setEmailAddress] = useState('')
@@ -39,6 +39,7 @@ function AddUser() {
 		setLastName('')
 		setEmailAddress('')
 		setDateCreated('')
+		handleCancel()
 	}
 
 	const handleSubmit = (e) => {

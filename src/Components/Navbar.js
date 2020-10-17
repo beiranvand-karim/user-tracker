@@ -5,9 +5,9 @@ import TabContext from '@material-ui/lab/TabContext'
 import TabList from '@material-ui/lab/TabList'
 import styled from 'styled-components'
 import TabPanel from '@material-ui/lab/TabPanel'
-import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
 import UsersList from './UsersList'
+import FabButton from './FabButton'
 
 const AppBarStyled = styled(AppBar)`
 	background: #222;
@@ -15,12 +15,6 @@ const AppBarStyled = styled(AppBar)`
 
 const TabContextStyled = styled(TabContext)`
 	flex-grow: 1;
-`
-
-const FabStyled = styled(Fab)`
-	position: absolute;
-	right: 16px;
-	bottom: 16px;
 `
 
 export default function NavBar() {
@@ -37,9 +31,9 @@ export default function NavBar() {
 			</AppBarStyled>
 			<TabPanel value='1'>
 				<UsersList />
-				<FabStyled color='primary'>
+				<FabButton color='primary'>
 					<AddIcon />
-				</FabStyled>
+				</FabButton>
 			</TabPanel>
 		</TabContextStyled>
 	)
