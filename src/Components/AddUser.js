@@ -27,6 +27,10 @@ const ContainerButton = styled.div`
 	justify-content: space-between;
 `
 
+const FormGroupStyled = styled(FormGroup)`
+	padding: 15px;
+`
+
 function AddUser({ handleCancel }) {
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName] = useState('')
@@ -64,7 +68,7 @@ function AddUser({ handleCancel }) {
 
 	return (
 		<ContainerStyled>
-			<FormGroup>
+			<FormGroupStyled>
 				Add User
 				<div>
 					<InputLabelStyled>First name</InputLabelStyled>
@@ -107,7 +111,7 @@ function AddUser({ handleCancel }) {
 						cancel
 					</Button>
 				</ContainerButton>
-			</FormGroup>
+			</FormGroupStyled>
 		</ContainerStyled>
 	)
 }

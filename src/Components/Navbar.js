@@ -5,7 +5,6 @@ import TabContext from '@material-ui/lab/TabContext'
 import TabList from '@material-ui/lab/TabList'
 import styled from 'styled-components'
 import TabPanel from '@material-ui/lab/TabPanel'
-import AddIcon from '@material-ui/icons/Add'
 import UsersList from './UsersList'
 import FabButton from './FabButton'
 
@@ -31,9 +30,7 @@ export default function NavBar() {
 			</AppBarStyled>
 			<TabPanel value='1'>
 				<UsersList />
-				<FabButton color='primary'>
-					<AddIcon />
-				</FabButton>
+				<FabButton />
 			</TabPanel>
 		</TabContextStyled>
 	)

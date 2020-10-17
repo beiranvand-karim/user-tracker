@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Fab from '@material-ui/core/Fab'
 import Dialog from '@material-ui/core/Dialog'
 import AddUser from './AddUser'
+import AddIcon from '@material-ui/icons/Add'
 
 const FabStyled = styled(Fab)`
 	position: absolute;
@@ -10,7 +11,7 @@ const FabStyled = styled(Fab)`
 	bottom: 16px;
 `
 
-export default function FloatButton() {
+export default function FabButton() {
 	const [showDialog, setShowDialog] = useState(false)
 
 	const handleClose = () => {
@@ -27,7 +28,7 @@ export default function FloatButton() {
 	return (
 		<div>
 			<FabStyled onClick={handleOpen} color='primary' variant='extended'>
-				Add user
+				<AddIcon />
 			</FabStyled>
 			<Dialog open={showDialog}>
 				<AddUser handleCancel={handleClose} />
