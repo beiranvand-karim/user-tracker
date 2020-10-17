@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import TabContext from '@material-ui/lab/TabContext'
@@ -24,16 +24,16 @@ const FabStyled = styled(Fab)`
 `
 
 export default function NavBar() {
-	const [tabIndex, setTabIndex] = React.useState(String(1))
-
-	const handleChange = (event, newValue) => {
-		setTabIndex(newValue)
-	}
+	const [tabIndex, setTabIndex] = useState(String(1))
 
 	return (
 		<TabContextStyled value={tabIndex}>
 			<AppBarStyled position='static'>
-				<TabList onChange={handleChange}>
+				<TabList
+					onChange={(event, newValue) => {
+						setTabIndex(newValue)
+					}}
+				>
 					<Tab label='Users' value='1' />
 					<Tab label='Products' value='2' />
 					<Tab label='Manufacturers' value='3' />
