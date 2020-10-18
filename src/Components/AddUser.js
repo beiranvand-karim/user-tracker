@@ -32,87 +32,81 @@ const FormGroupStyled = styled(FormGroup)`
 `
 
 function AddUser({ handleCancel, setUsers }) {
-	const [firstName, setFirstName] = useState('')
-	const [lastName, setLastName] = useState('')
-	const [emailAddress, setEmailAddress] = useState('')
-	const [dateCreated, setDateCreated] = useState('')
+	const [firstName, setFirstName] = useState(null)
+	const [lastName, setLastName] = useState(null)
+	const [emailAddress, setEmailAddress] = useState(null)
+	const [dateCreated, setDateCreated] = useState(null)
 
-	const cancel = (e) => {
-		e.preventDefault()
-		setFirstName('')
-		setLastName('')
-		setEmailAddress('')
-		setDateCreated('')
+	const clearUserInputs = () => {
+		setFirstName(null)
+		setLastName(null)
+		setEmailAddress(null)
+		setDateCreated(null)
+	}
+
+	const cancel = () => {
+		clearUserInputs()
 		handleCancel()
 	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		setUsers((users) => {
-			if (!users) return [{ firstName, lastName, emailAddress, dateCreated }]
-			return [...users, { firstName, lastName, emailAddress, dateCreated }]
-		})
-		setFirstName('')
-		setLastName('')
-		setEmailAddress('')
-		setDateCreated('')
-	}
+	const nullToEmpty = (value) => value || String()
 
-	const handleEmptyError = () => {
-		if (
-			firstName.length <= 2 ||
-			lastName.length <= 2 ||
-			emailAddress.length <= 10
-		) {
-			return false
-		} else {
-			return true
+	const handleSubmit = () => {
+		const user = {
+			firstName: nullToEmpty(firstName),
+			lastName: nullToEmpty(lastName),
+			emailAddress: nullToEmpty(emailAddress),
+			dateCreated: nullToEmpty(dateCreated),
 		}
+		setUsers((users) => {
+			if (!users) return [user]
+			return [...users, user]
+		})
+		clearUserInputs()
+		handleCancel()
 	}
 
 	return (
 		<ContainerStyled>
 			<FormGroupStyled>
-				Add User
 				<div>
 					<InputLabelStyled>First name</InputLabelStyled>
 					<TextFieldStyled
-						value={firstName}
+						value={nullToEmpty(firstName)}
 						variant='outlined'
 						name='firstName'
-						onChange={(e) => setFirstName(e.target.value)}
+						onChange={({ target: { value } }) => setFirstName(value)}
 					/>
 				</div>
 				<div>
 					<InputLabelStyled>Last name</InputLabelStyled>
 					<TextFieldStyled
-						value={lastName}
+						value={nullToEmpty(lastName)}
 						variant='outlined'
 						name='lastName'
-						onChange={(e) => setLastName(e.target.value)}
+						onChange={({ target: { value } }) => setLastName(value)}
 					/>
 				</div>
 				<div>
 					<InputLabelStyled>Email</InputLabelStyled>
 					<TextFieldStyled
-						value={emailAddress}
+						value={nullToEmpty(emailAddress)}
 						variant='outlined'
 						name='emailAddress'
-						onChange={(e) => setEmailAddress(e.target.value)}
+						onChange={({ target: { value } }) => setEmailAddress(value)}
 					/>
 				</div>
 				<ContainerButton>
 					<Button
-						disabled={handleEmptyError() === false}
 						onClick={handleSubmit}
 						variant='contained'
 						color='primary'
 						type='submit'
 					>
-						submit
+						Add
 					</Button>
 					<Button onClick={cancel} variant='contained' color='secondary'>
-						cancel
+						Close
 					</Button>
 				</ContainerButton>
 			</FormGroupStyled>
