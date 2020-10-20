@@ -5,30 +5,36 @@ import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
 import { InputLabel } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
+import FormControl from '@material-ui/core/FormControl'
 
 const ContainerStyled = styled(Container)`
 	flex-grow: 1;
 	background: #f5f5f5;
 `
 
-const TextFieldStyled = styled(TextField)`
-	background: #fefefe;
-	margin: 30px;
-	width: 80%;
+const FormGroupStyled = styled(FormGroup)`
+	padding: 30px;
+`
+
+const FormControlStyled = styled(FormControl)`
+	margin-top: 30px;
 `
 
 const InputLabelStyled = styled(InputLabel)`
-	position: absolute;
-	left: 70px;
+	margin-top: 40x;
+	position: relative;
+	transform: none;
 `
 
-const ContainerButton = styled.div`
-	display: flex;
+const TextFieldStyled = styled(TextField)`
+	background: #fefefe;
+	margin-top: 5px;
+`
+
+const FormControlButtonStyled = styled(FormControl)`
+	margin-top: 30px;
+	flex-direction: row;
 	justify-content: space-between;
-`
-
-const FormGroupStyled = styled(FormGroup)`
-	padding: 15px;
 `
 
 function AddUser({ handleCancel, setUsers }) {
@@ -56,7 +62,7 @@ function AddUser({ handleCancel, setUsers }) {
 			firstName: nullToEmpty(firstName),
 			lastName: nullToEmpty(lastName),
 			emailAddress: nullToEmpty(emailAddress),
-			dateCreated: nullToEmpty(dateCreated),
+			dateCreated: nullToEmpty(new Date().toLocaleString()),
 		}
 		setUsers((users) => {
 			if (!users) return [user]
@@ -69,7 +75,7 @@ function AddUser({ handleCancel, setUsers }) {
 	return (
 		<ContainerStyled>
 			<FormGroupStyled>
-				<div>
+				<FormControlStyled>
 					<InputLabelStyled>First name</InputLabelStyled>
 					<TextFieldStyled
 						value={nullToEmpty(firstName)}
@@ -77,8 +83,8 @@ function AddUser({ handleCancel, setUsers }) {
 						name='firstName'
 						onChange={({ target: { value } }) => setFirstName(value)}
 					/>
-				</div>
-				<div>
+				</FormControlStyled>
+				<FormControlStyled>
 					<InputLabelStyled>Last name</InputLabelStyled>
 					<TextFieldStyled
 						value={nullToEmpty(lastName)}
@@ -86,8 +92,8 @@ function AddUser({ handleCancel, setUsers }) {
 						name='lastName'
 						onChange={({ target: { value } }) => setLastName(value)}
 					/>
-				</div>
-				<div>
+				</FormControlStyled>
+				<FormControlStyled>
 					<InputLabelStyled>Email</InputLabelStyled>
 					<TextFieldStyled
 						value={nullToEmpty(emailAddress)}
@@ -95,8 +101,8 @@ function AddUser({ handleCancel, setUsers }) {
 						name='emailAddress'
 						onChange={({ target: { value } }) => setEmailAddress(value)}
 					/>
-				</div>
-				<ContainerButton>
+				</FormControlStyled>
+				<FormControlButtonStyled>
 					<Button
 						onClick={handleSubmit}
 						variant='contained'
@@ -108,7 +114,7 @@ function AddUser({ handleCancel, setUsers }) {
 					<Button onClick={cancel} variant='contained' color='secondary'>
 						Close
 					</Button>
-				</ContainerButton>
+				</FormControlButtonStyled>
 			</FormGroupStyled>
 		</ContainerStyled>
 	)
