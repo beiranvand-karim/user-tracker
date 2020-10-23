@@ -2,11 +2,13 @@ import React from "react"
 import ReactDOM from "react-dom"
 import GlobalStyle from "./globalStyles"
 import App from "./App"
+import { Provider } from "react-redux"
+import { Store } from "./Redux/RootReducer"
 
 ReactDOM.render(
-	<React.Fragment>
+	<Provider store={Store}>
 		<GlobalStyle />
 		<App />
-	</React.Fragment>,
+	</Provider>,
 	document.getElementById("root")
 )
