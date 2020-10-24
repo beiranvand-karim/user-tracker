@@ -18,8 +18,6 @@ const TabContextStyled = styled(TabContext)`
 export default function NavBar() {
 	const [tabIndex, setTabIndex] = useState(String(1))
 
-	const [users, setUsers] = useState(null)
-
 	return (
 		<TabContextStyled value={tabIndex}>
 			<AppBarStyled position="static">
@@ -30,7 +28,7 @@ export default function NavBar() {
 				</TabList>
 			</AppBarStyled>
 			<TabPanel value="1">
-				<UsersTab users={users} setUsers={setUsers} />
+				<UsersTab />
 			</TabPanel>
 		</TabContextStyled>
 	)

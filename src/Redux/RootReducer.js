@@ -9,7 +9,12 @@ export const Store = createStore(
 )
 
 function Reducer(state, { type, payload }) {
-	return state
+	switch (type) {
+		case "ADD-USER":
+			return (state = [...state, payload])
+		default:
+			return state
+	}
 }
 
 export default Reducer

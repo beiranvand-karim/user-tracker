@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import { Checkbox } from "@material-ui/core"
 import styled from "styled-components"
+import { useSelector } from "react-redux"
 
 const TableHeadCellStyled = styled(TableCell)`
 	background: #ced2aa;
@@ -35,7 +36,8 @@ const Container = styled.div`
 	justify-content: center;
 `
 
-export default function UsersList({ users }) {
+export default function UsersList() {
+	const users = useSelector((users) => users)
 	return (
 		<Container>
 			<TableContainerStyled component={Paper}>

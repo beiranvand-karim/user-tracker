@@ -17,15 +17,12 @@ export default function UsersTab({ users, setUsers }) {
 
 	return (
 		<div>
-			<UsersList users={users} />
+			<UsersList />
 			<FabStyled onClick={(e) => setShowDialog(true)} color="primary">
 				<AddIcon />
 			</FabStyled>
 			<Dialog open={showDialog}>
-				<AddUser
-					setUsers={setUsers}
-					handleCancel={(e) => setShowDialog(false)}
-				/>
+				<AddUser handleCancel={(e) => setShowDialog(false)} />
 			</Dialog>
 		</div>
 	)
