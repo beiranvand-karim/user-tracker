@@ -1,9 +1,5 @@
 import { createStore } from "redux"
 
-const initialState = null
-
-export const Store = createStore(Reducer, initialState)
-
 function Reducer(state, { type, payload }) {
 	switch (type) {
 		case "ADD-USER":
@@ -12,7 +8,11 @@ function Reducer(state, { type, payload }) {
 			} else {
 				return (state = [...state, payload])
 			}
+		case "DELETE-USER":
+			return state.filter((user) => user.id !== payload)
 		default:
 			return state
 	}
 }
+
+export const Store = createStore(Reducer)

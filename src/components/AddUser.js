@@ -7,6 +7,7 @@ import { InputLabel } from "@material-ui/core"
 import FormGroup from "@material-ui/core/FormGroup"
 import FormControl from "@material-ui/core/FormControl"
 import { useDispatch } from "react-redux"
+import uuid from "react-uuid"
 
 const ContainerStyled = styled(Container)`
 	flex-grow: 1;
@@ -42,6 +43,7 @@ function AddUser({ handleCancel }) {
 	const [lastName, setLastName] = useState(null)
 	const [emailAddress, setEmailAddress] = useState(null)
 	const [dateCreated, setDateCreated] = useState(null)
+	const [id, setId] = useState(null)
 	const dispatch = useDispatch()
 
 	const clearUserInputs = () => {
@@ -49,6 +51,7 @@ function AddUser({ handleCancel }) {
 		setLastName(null)
 		setEmailAddress(null)
 		setDateCreated(null)
+		setId(null)
 	}
 
 	const cancel = () => {
@@ -60,6 +63,7 @@ function AddUser({ handleCancel }) {
 
 	const handleSubmit = () => {
 		const user = {
+			id: nullToEmpty(uuid()),
 			firstName: nullToEmpty(firstName),
 			lastName: nullToEmpty(lastName),
 			emailAddress: nullToEmpty(emailAddress),
