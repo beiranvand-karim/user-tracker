@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
 import TableCell from "@material-ui/core/TableCell"
@@ -9,9 +9,6 @@ import Paper from "@material-ui/core/Paper"
 import { Checkbox } from "@material-ui/core"
 import styled from "styled-components"
 import { useSelector } from "react-redux"
-import { useDispatch } from "react-redux"
-import Button from "@material-ui/core/Button"
-import DeleteIcon from "@material-ui/icons/Delete"
 
 const TableHeadCellStyled = styled(TableCell)`
 	background: #ced2aa;
@@ -41,42 +38,7 @@ const Container = styled.div`
 
 export default function UsersList() {
 	const users = useSelector((users) => users)
-	const [checkedUsers, setCheckedUsers] = useState(null)
-	const dispatch = useDispatch()
 
-	const handleChange = (e, userId) => {
-		if (checkedUsers == null) {
-			setCheckedUsers([userId])
-		} else {
-			if (existUserById(userId)) {
-				const users = checkedUsers.filter((id) => {
-					return id !== userId
-				})
-				setCheckedUsers(users)
-			} else {
-				setCheckedUsers([...checkedUsers, userId])
-			}
-		}
-	}
-
-	const existUserById = (userId) => {
-		if (
-			checkedUsers.find((id) => {
-				if (id === userId) return true
-			})
-		) {
-			return true
-		} else {
-			return false
-		}
-	}
-
-	const deleteUser = () => {
-		for (const checked of checkedUsers) {
-			dispatch({ type: "DELETE-USER", payload: checked })
-		}
-		setCheckedUsers(null)
-	}
 	return (
 		<Container>
 			<TableContainerStyled component={Paper}>
@@ -87,11 +49,6 @@ export default function UsersList() {
 							<TableHeadCellStyled>Email</TableHeadCellStyled>
 							<TableHeadCellStyled>Date Created</TableHeadCellStyled>
 							<TableHeadCellStyled>Date Modified</TableHeadCellStyled>
-							<TableHeadCellStyled>
-								<Button disabled={!checkedUsers} onClick={() => deleteUser()}>
-									<DeleteIcon />
-								</Button>
-							</TableHeadCellStyled>
 						</TableRow>
 					</TableHead>
 					{users &&
@@ -99,10 +56,7 @@ export default function UsersList() {
 							<TableBody key={user.id}>
 								<TableRow>
 									<TableBodyCellStyled component="th" scope="row">
-										<Checkbox
-											onClick={(e) => handleChange(e, user.id)}
-											color="default"
-										/>
+										<Checkbox color="default" />
 										{user.firstName + " "}
 										{user.lastName}
 									</TableBodyCellStyled>

@@ -8,8 +8,6 @@ function Reducer(state, { type, payload }) {
 			} else {
 				return (state = [...state, payload])
 			}
-		case "DELETE-USER":
-			return state.filter((user) => user.id !== payload)
 		default:
 			return state
 	}
