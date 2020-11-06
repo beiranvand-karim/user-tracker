@@ -1,8 +1,10 @@
 import { createStore } from "redux"
 
-function Reducer(state, { type, payload }) {
+export const AddUserConstant = "ADD_USER"
+
+export const Store = createStore((state, { type, payload }) => {
 	switch (type) {
-		case "ADD-USER":
+		case AddUserConstant:
 			if (state == null) {
 				return (state = [payload])
 			} else {
@@ -11,6 +13,4 @@ function Reducer(state, { type, payload }) {
 		default:
 			return state
 	}
-}
-
-export const Store = createStore(Reducer)
+}, null)

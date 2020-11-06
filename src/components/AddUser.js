@@ -9,6 +9,8 @@ import FormControl from "@material-ui/core/FormControl"
 import { useDispatch } from "react-redux"
 import uuid from "react-uuid"
 
+import { AddUserConstant } from "../state/UserReducer"
+
 const ContainerStyled = styled(Container)`
 	flex-grow: 1;
 	background: #f5f5f5;
@@ -69,7 +71,7 @@ function AddUser({ handleCancel }) {
 			emailAddress: nullToEmpty(emailAddress),
 			dateCreated: nullToEmpty(new Date().toLocaleString()),
 		}
-		dispatch({ type: "ADD-USER", payload: user })
+		dispatch({ type: AddUserConstant, payload: user })
 		clearUserInputs()
 		handleCancel()
 	}
