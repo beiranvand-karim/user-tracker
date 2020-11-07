@@ -4,10 +4,10 @@ import GlobalStyle from "./globalStyles"
 import { Provider } from "react-redux"
 
 import App from "./App"
-import { Store } from "./state/UserReducer"
+import { store } from "./state/UsersReducer"
 
 ReactDOM.render(
-	<Provider store={Store}>
+	<Provider store={store}>
 		<GlobalStyle />
 		<App />
 	</Provider>,
