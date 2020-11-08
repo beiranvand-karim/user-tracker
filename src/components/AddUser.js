@@ -86,6 +86,7 @@ function AddUser({ handleCancel }) {
 						variant="outlined"
 						name="firstName"
 						onChange={({ target: { value } }) => setFirstName(value)}
+						data-testid="firstName-textField"
 					/>
 				</FormControlStyled>
 				<FormControlStyled>
@@ -95,6 +96,7 @@ function AddUser({ handleCancel }) {
 						variant="outlined"
 						name="lastName"
 						onChange={({ target: { value } }) => setLastName(value)}
+						data-testid="lastName-textField"
 					/>
 				</FormControlStyled>
 				<FormControlStyled>
@@ -104,6 +106,7 @@ function AddUser({ handleCancel }) {
 						variant="outlined"
 						name="emailAddress"
 						onChange={({ target: { value } }) => setEmailAddress(value)}
+						data-testid="email-textField"
 					/>
 				</FormControlStyled>
 				<FormControlButtonStyled>
@@ -112,6 +115,7 @@ function AddUser({ handleCancel }) {
 						variant="contained"
 						color="primary"
 						type="submit"
+						data-testid="add"
 					>
 						Add
 					</Button>

@@ -55,12 +55,18 @@ export default function UsersList() {
 						users.map((user) => (
 							<TableBody key={user.id}>
 								<TableRow>
-									<TableBodyCellStyled component="th" scope="row">
+									<TableBodyCellStyled
+										component="th"
+										scope="row"
+										data-testid="name-tableCell"
+									>
 										<Checkbox color="default" />
 										{user.firstName + " "}
 										{user.lastName}
 									</TableBodyCellStyled>
-									<TableBodyCellStyled>{user.emailAddress}</TableBodyCellStyled>
+									<TableBodyCellStyled data-testid="email-tableCell">
+										{user.emailAddress}
+									</TableBodyCellStyled>
 									<TableBodyCellStyled>{user.dateCreated}</TableBodyCellStyled>
 									<TableBodyCellStyled>{user.dateModified}</TableBodyCellStyled>
 								</TableRow>

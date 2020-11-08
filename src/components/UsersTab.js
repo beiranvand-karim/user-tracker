@@ -19,7 +19,11 @@ export default function UsersTab() {
 	return (
 		<div>
 			<UsersList />
-			<FabStyled onClick={() => setShowDialog(true)} color="primary">
+			<FabStyled
+				onClick={(e) => setShowDialog(true)}
+				color="primary"
+				data-testid="fab-button"
+			>
 				<AddIcon />
 			</FabStyled>
 			<Dialog open={showDialog}>
