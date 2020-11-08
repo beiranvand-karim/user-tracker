@@ -6,11 +6,8 @@ export const store = createStore(
 	(state, { type, payload }) => {
 		switch (type) {
 			case ADD_USER:
-				if (state == null) {
-					return (state = [payload])
-				} else {
-					return (state = [...state, payload])
-				}
+				if (!state) return (state = [payload])
+				return (state = [...state, payload])
 			default:
 				return state
 		}
