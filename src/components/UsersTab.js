@@ -22,7 +22,7 @@ export default function UsersTab() {
 			<FabStyled
 				onClick={(e) => setShowDialog(true)}
 				color="primary"
-				data-testid="fab-button"
+				data-test-id="fab-button"
 			>
 				<AddIcon />
 			</FabStyled>

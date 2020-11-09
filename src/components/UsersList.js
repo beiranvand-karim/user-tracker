@@ -58,13 +58,13 @@ export default function UsersList() {
 									<TableBodyCellStyled
 										component="th"
 										scope="row"
-										data-testid="name-tableCell"
+										data-test-id="name-tableCell"
 									>
 										<Checkbox color="default" />
 										{user.firstName + " "}
 										{user.lastName}
 									</TableBodyCellStyled>
-									<TableBodyCellStyled data-testid="email-tableCell">
+									<TableBodyCellStyled data-test-id="email-tableCell">
 										{user.emailAddress}
 									</TableBodyCellStyled>
 									<TableBodyCellStyled>{user.dateCreated}</TableBodyCellStyled>
