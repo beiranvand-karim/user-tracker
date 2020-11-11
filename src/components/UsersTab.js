@@ -13,7 +13,7 @@ const FabStyled = styled(Fab)`
 	bottom: 16px;
 `
 
-const UsersTab = () => {
+export const UsersTab = () => {
 	const [showDialog, setShowDialog] = useState(false)
 
 	return (

@@ -36,7 +36,7 @@ const Container = styled.div`
 	justify-content: center;
 `
 
-const UsersList = () => {
+export const UsersList = () => {
 	const users = useSelector((users) => users)
 
 	return (

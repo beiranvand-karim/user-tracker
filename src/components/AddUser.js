@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl"
 import { useDispatch } from "react-redux"
 import uuid from "react-uuid"
 
-import { ADD_USER } from "../state/store"
+import { ADD_USER } from "../state"
 
 const ContainerStyled = styled(Container)`
 	flex-grow: 1;
@@ -42,7 +42,7 @@ const FormControlButtonStyled = styled(FormControl)`
 
 const nullToEmpty = (value) => value || String()
 
-const AddUser = ({ handleCancel }) => {
+export const AddUser = ({ handleCancel }) => {
 	const [firstName, setFirstName] = useState(null)
 	const [lastName, setLastName] = useState(null)
 	const [emailAddress, setEmailAddress] = useState(null)

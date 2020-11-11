@@ -2,8 +2,8 @@ import React from "react"
 import { StylesProvider } from "@material-ui/core/styles"
 import { Provider } from "react-redux"
 
-import NavBar from "./components/Navbar"
-import { store } from "./state/store"
+import { NavBar } from "./components"
+import { store } from "./state"
 import GlobalStyle from "./globalStyles"
 
 const App = () => {
