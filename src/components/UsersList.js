@@ -36,7 +36,7 @@ const Container = styled.div`
 	justify-content: center;
 `
 
-export default function UsersList() {
+const UsersList = () => {
 	const users = useSelector((users) => users)
 
 	return (
@@ -61,8 +61,7 @@ export default function UsersList() {
 										data-test-id="name-tableCell"
 									>
 										<Checkbox color="default" />
-										{user.firstName + " "}
-										{user.lastName}
+										{`${user.firstName} ${user.lastName}`}
 									</TableBodyCellStyled>
 									<TableBodyCellStyled data-test-id="email-tableCell">
 										{user.emailAddress}
@@ -77,3 +76,5 @@ export default function UsersList() {
 		</Container>
 	)
 }
+
+export default UsersList

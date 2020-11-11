@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import Fab from "@material-ui/core/Fab"
 import Dialog from "@material-ui/core/Dialog"
-import AddUser from "./AddUser"
 import AddIcon from "@material-ui/icons/Add"
 
 import UsersList from "./UsersList"
+import AddUser from "./AddUser"
 
 const FabStyled = styled(Fab)`
 	position: absolute;
@@ -13,14 +13,14 @@ const FabStyled = styled(Fab)`
 	bottom: 16px;
 `
 
-export default function UsersTab() {
+const UsersTab = () => {
 	const [showDialog, setShowDialog] = useState(false)
 
 	return (
-		<div>
+		<>
 			<UsersList />
 			<FabStyled
-				onClick={(e) => setShowDialog(true)}
+				onClick={() => setShowDialog(true)}
 				color="primary"
 				data-test-id="fab-button"
 			>
@@ -29,6 +29,8 @@ export default function UsersTab() {
 			<Dialog open={showDialog}>
 				<AddUser handleCancel={() => setShowDialog(false)} />
 			</Dialog>
-		</div>
+		</>
 	)
 }
+
+export default UsersTab

@@ -1,13 +1,19 @@
 import React from "react"
 import { StylesProvider } from "@material-ui/core/styles"
+import { Provider } from "react-redux"
 
 import NavBar from "./components/Navbar"
+import { store } from "./state/store"
+import GlobalStyle from "./globalStyles"
 
-function App() {
+const App = () => {
 	return (
-		<StylesProvider injectFirst>
-			<NavBar />
-		</StylesProvider>
+		<Provider store={store}>
+			<GlobalStyle />
+			<StylesProvider injectFirst>
+				<NavBar />
+			</StylesProvider>
+		</Provider>
 	)
 }
 

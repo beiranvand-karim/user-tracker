@@ -13,10 +13,8 @@ export const store = createStore(
 		}
 	},
 	null,
-	applyMiddleware(({ getState }) => {
+	applyMiddleware(() => {
 		return (next) => (action) => {
-			console.log("will dispatch", action)
-			console.log("state after dispatch", getState())
 			return next(action)
 		}
 	})

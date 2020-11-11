@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl"
 import { useDispatch } from "react-redux"
 import uuid from "react-uuid"
 
-import { ADD_USER } from "../state/UsersReducer"
+import { ADD_USER } from "../state/store"
 
 const ContainerStyled = styled(Container)`
 	flex-grow: 1;
@@ -40,7 +40,9 @@ const FormControlButtonStyled = styled(FormControl)`
 	justify-content: space-between;
 `
 
-function AddUser({ handleCancel }) {
+const nullToEmpty = (value) => value || String()
+
+const AddUser = ({ handleCancel }) => {
 	const [firstName, setFirstName] = useState(null)
 	const [lastName, setLastName] = useState(null)
 	const [emailAddress, setEmailAddress] = useState(null)
@@ -61,8 +63,6 @@ function AddUser({ handleCancel }) {
 		handleCancel()
 	}
 
-	const nullToEmpty = (value) => value || String()
-
 	const handleSubmit = () => {
 		const user = {
 			id: nullToEmpty(uuid()),
@@ -72,8 +72,7 @@ function AddUser({ handleCancel }) {
 			dateCreated: nullToEmpty(new Date().toLocaleString()),
 		}
 		dispatch({ type: ADD_USER, payload: user })
-		clearUserInputs()
-		handleCancel()
+		cancel()
 	}
 
 	return (
