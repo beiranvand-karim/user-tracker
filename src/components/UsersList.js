@@ -51,26 +51,28 @@ export const UsersList = () => {
 							<TableHeadCellStyled>Date Modified</TableHeadCellStyled>
 						</TableRow>
 					</TableHead>
-					{users &&
-						users.map((user) => (
-							<TableBody key={user.id}>
-								<TableRow>
+					<TableBody>
+						{users &&
+							users.map((user) => (
+								<TableRow key={user.id}>
 									<TableBodyCellStyled
 										component="th"
 										scope="row"
-										data-test-id="name-tableCell"
+										data-test-id={`name-tableCell-${user.id}`}
 									>
 										<Checkbox color="default" />
 										{`${user.firstName} ${user.lastName}`}
 									</TableBodyCellStyled>
-									<TableBodyCellStyled data-test-id="email-tableCell">
+									<TableBodyCellStyled
+										data-test-id={`email-tableCell-${user.id}`}
+									>
 										{user.emailAddress}
 									</TableBodyCellStyled>
 									<TableBodyCellStyled>{user.dateCreated}</TableBodyCellStyled>
 									<TableBodyCellStyled>{user.dateModified}</TableBodyCellStyled>
 								</TableRow>
-							</TableBody>
-						))}
+							))}
+					</TableBody>
 				</TableStyled>
 			</TableContainerStyled>
 		</Container>

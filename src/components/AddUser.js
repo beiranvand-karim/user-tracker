@@ -46,8 +46,10 @@ export const AddUser = ({ handleCancel }) => {
 	const [firstName, setFirstName] = useState(null)
 	const [lastName, setLastName] = useState(null)
 	const [emailAddress, setEmailAddress] = useState(null)
+	// eslint-disable-next-line no-unused-vars
 	const [dateCreated, setDateCreated] = useState(null)
-	const [id, setId] = useState(null)
+	// eslint-disable-next-line no-unused-vars
+	const [id, setId] = useState(nullToEmpty(uuid()))
 	const dispatch = useDispatch()
 
 	const clearUserInputs = () => {
@@ -55,7 +57,6 @@ export const AddUser = ({ handleCancel }) => {
 		setLastName(null)
 		setEmailAddress(null)
 		setDateCreated(null)
-		setId(null)
 	}
 
 	const cancel = () => {
@@ -65,11 +66,11 @@ export const AddUser = ({ handleCancel }) => {
 
 	const handleSubmit = () => {
 		const user = {
-			id: nullToEmpty(uuid()),
 			firstName: nullToEmpty(firstName),
 			lastName: nullToEmpty(lastName),
 			emailAddress: nullToEmpty(emailAddress),
 			dateCreated: nullToEmpty(new Date().toLocaleString()),
+			id,
 		}
 		dispatch({ type: ADD_USER, payload: user })
 		cancel()
@@ -78,6 +79,13 @@ export const AddUser = ({ handleCancel }) => {
 	return (
 		<ContainerStyled>
 			<FormGroupStyled>
+				<input
+					name="id"
+					data-test-id="id"
+					type="hidden"
+					data-id={id}
+					value={id}
+				/>
 				<FormControlStyled>
 					<InputLabelStyled>First name</InputLabelStyled>
 					<TextFieldStyled
