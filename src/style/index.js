@@ -1,2 +1,1 @@
-import GlobalStyle from "./globalStyle"
-export { GlobalStyle }
+export * from "./GlobalStyle"
