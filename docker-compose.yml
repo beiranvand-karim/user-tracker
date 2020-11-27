@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    container_name: user-tracker
+    tty: true
+    stdin_open: true
+    ports:
+    - 3000:3000

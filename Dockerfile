@@ -1,14 +1,12 @@
-FROM node:latest
+FROM node:alpine
 
 WORKDIR /app
 
-ADD . /app
-
-COPY package.json ./
+COPY package.json yarn.lock ./
 
 RUN yarn install
 
-COPY . .
+COPY . ./
 
 EXPOSE 3000
 
