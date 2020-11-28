@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Fab } from "@material-ui/core"
-import { Dialog } from "@material-ui/core"
+import { Dialog, Fab } from "@material-ui/core"
 import { Add as AddIcon } from "@material-ui/icons"
 
 import { UsersList } from "../usersList"
