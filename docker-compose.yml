@@ -1,9 +1,24 @@
 services:
   web:
-    build: .
-    container_name: user-tracker
+    build:
+      context: .
+      target: builder
+    container_name: user-tracker-project
     tty: true
-    stdin_open: true
     ports:
       - 5000:5000
     command: serve -s build
+
+  cypress:
+    build:
+      context: .
+      target: test-runner
+    tty: true
+    ports:
+    - 3000:3000
+    container_name: cypress
+    depends_on:
+      - web
+    entrypoint: ["sh","-c","cypress run"]
+
+
