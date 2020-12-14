@@ -71,7 +71,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### `docker-compose up`
 
-runs the app in a container , map it to system and finally runs virtual terminal in the container.<br />
- open [http://localhost:5000](http://localhost:5000) in the container and [http://localhost:5000](http://localhost:5000) in a browser to view it. 
+runs the app in a container , map it to system , runs virtual terminal in the container user_tracker_project and runs tests in container cypress_test_runner.<br />
+ open [http://localhost:5000](http://localhost:5000) in the container and [http://localhost:5000](http://localhost:5000) in a browser to view it.
  
 

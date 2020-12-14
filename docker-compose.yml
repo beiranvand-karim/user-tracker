@@ -1,24 +1,25 @@
 services:
   web:
     build:
-      context: .
+      context: ./
       target: builder
-    container_name: user-tracker-project
+    container_name: user_tracker_project
     tty: true
     ports:
       - 5000:5000
     command: serve -s build
 
   cypress:
+    ipc: host
     build:
-      context: .
+      context: ./
       target: test-runner
+    container_name: cypress_test_runner
+    image: 'cypress_test_runner'
     tty: true
     ports:
     - 3000:3000
-    container_name: cypress
     depends_on:
       - web
-    entrypoint: ["sh","-c","cypress run"]
-
-
+    environment:
+    - CYPRESS_BASE_URL=http://web:5000

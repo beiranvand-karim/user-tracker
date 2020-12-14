@@ -10,4 +10,3 @@ RUN yarn global add serve
 FROM cypress/included:6.1.0 as test-runner
 WORKDIR /app
 COPY --from=builder /app ./
-
