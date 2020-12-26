@@ -1,25 +1,19 @@
+version: '3.7'
+
 services:
-  web:
+  webapp:
     build:
       context: ./
-      target: builder
-    container_name: user_tracker_project
-    tty: true
-    ports:
-      - 5000:5000
-    command: serve -s build
-
+      target: app
+    image: webapp-image
   cypress:
-    ipc: host
     build:
       context: ./
       target: test-runner
-    container_name: cypress_test_runner
-    image: 'cypress_test_runner'
-    tty: true
-    ports:
-    - 3000:3000
+    image: cypress-test-runner
     depends_on:
-      - web
+      - webapp
     environment:
-    - CYPRESS_BASE_URL=http://web:5000
+      - CYPRESS_baseUrl=http://webapp:3000
+      - BASE_IMAGE=webapp-image
+    working_dir: /app
