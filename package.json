@@ -6,16 +6,13 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^4.0.1",
     "react-uuid": "^1.0.2",
     "redux": "^4.0.5",
+    "serve": "^11.3.2",
     "styled-components": "^5.2.0",
     "uuid": "^8.3.1"
   },
@@ -25,8 +22,7 @@
     "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check",
     "format": "fix pretty/prettier",
     "cypress": "cypress open",
-    "serve": "serve -s build",
-    "start:server": "node dist/server"
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,8 +41,8 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^7.0.1",
-    "cypress": "^5.5.0",
-    "eslint": "^6.6.0",
+    "cypress": "^6.2.0",
+    "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-react-app": "^5.2.1",

@@ -1,2 +1,2 @@
 docker build -t user-tracker .
-docker-compose up
+docker-compose up --build --remove-orphans
