@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check",
     "format": "fix pretty/prettier",
-    "cypress": "cypress open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "serve": "serve -s build"
   },
   "eslintConfig": {
