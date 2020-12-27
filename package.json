@@ -23,7 +23,7 @@
     "format": "fix pretty/prettier",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "serve": "serve -s build"
+    "serve": "serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": "react-app"

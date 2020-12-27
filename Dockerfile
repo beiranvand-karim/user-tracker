@@ -9,7 +9,7 @@ FROM node:14-alpine as app
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app .
 RUN rm -rf cypress
-EXPOSE 5000
+EXPOSE 3000
 CMD ["yarn", "serve"]
 
 FROM cypress/included:6.2.0 as test-runner
