@@ -67,11 +67,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-## containerisation
+## Production deployment
 
-### `docker-compose up`
-
-runs the app in a container , map it to system , runs virtual terminal in the container user_tracker_project and runs tests in container cypress_test_runner.<br />
- open [http://localhost:3000](http://localhost:3000) in the container and [http://localhost:3000](http://localhost:3000) in a browser to view it.
- 
-
+For creating a production ready build run command `docker-compose up`, if the build succeeds, then it's read to be deployed to production.
+This command also runs cypress end to end integration tests, before pushing the build to production it's better to make sure the all of them pass, if not the build will fail, but if the webapp image build passes, it still can be deployed to production.
