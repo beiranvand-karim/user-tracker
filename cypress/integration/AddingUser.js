@@ -23,10 +23,4 @@ describe("Adding users", () => {
 			cy.findByTestId(`email-tableCell-${userId}`).should("contain", email)
 		})
 	})
-
-	it("testing failure", () => {
-		cy.visit("/")
-
-		cy.findByTestId("fab-button123").click()
-	})
 })
