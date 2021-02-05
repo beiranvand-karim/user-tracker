@@ -53,6 +53,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4",
-    "prettier": "^2.1.2"
+    "formik": "^2.2.6",
+    "prettier": "^2.1.2",
+    "react-hook-form": "^6.15.1",
+    "yup": "^0.32.8"
   }
 }

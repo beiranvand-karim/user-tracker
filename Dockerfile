@@ -16,3 +16,9 @@ FROM cypress/included:6.2.0 as test-runner
 WORKDIR /app
 COPY --from=builder /usr/src/app /app
 ENTRYPOINT ["sh", "-c", "cypress run"]
+
+FROM nginx:alpine as nginx
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /usr/build /usr/share/nginx/html
+CMD ["nginx" , "-g" , "daemon off;"]

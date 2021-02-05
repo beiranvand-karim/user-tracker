@@ -6,6 +6,17 @@ services:
       context: ./
       target: app
     image: webapp-image
+  nginx:
+    build:
+      context: ./
+        target: nginx
+
+    image: nginx
+    tty: true
+    ports:
+        - 8080:80
+    depends_on:
+        - webapp
   cypress:
     build:
       context: ./
@@ -14,6 +25,6 @@ services:
     depends_on:
       - webapp
     environment:
-      - CYPRESS_baseUrl=http://webapp:3000
+      - CYPRESS_baseUrl=http://nginx:80
       - BASE_IMAGE=webapp-image
     working_dir: /app
