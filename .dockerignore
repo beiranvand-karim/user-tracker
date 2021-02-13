@@ -7,3 +7,5 @@ debug.log
 .gitignore
 README.md
 build
+.yarn/
+.pnp.js
