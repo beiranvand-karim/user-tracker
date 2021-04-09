@@ -3,7 +3,9 @@ import axios from "axios"
 export const sendRequestAdduser = async (user) => {
 	try {
 		/* eslint-disable */
-		const response = await axios.post("http://localhost:8082/api/users", null, {
+		const response = await axios({
+			method:"post",
+			url:"http://localhost:8082/api/users",
 			params: {
 				"id": user.id,
 				"firstName": user.firstName,
