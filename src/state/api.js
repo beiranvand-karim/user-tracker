@@ -2,21 +2,21 @@ import axios from "axios"
 
 export const sendRequestAdduser = async (user) => {
 	try {
-		/* eslint-disable */
-		const response = await axios({
+		const request = {
+			/* eslint-disable */
 			method:"post",
 			url:"http://localhost:8082/api/users",
-			params: {
-				"id": user.id,
-				"firstName": user.firstName,
-				"lastName": user.lastName,
-				"emailAddress": user.emailAddress
+			data: {
+				"firstName":user.firstName,
+				"lastName":user.lastName,
+				"emailAddress":user.emailAddress
 			},
 			headers: {
-				"content-type": "application/x-www-form-urlencoded",
-			}
-		})
-		/* eslint-enable */
+				"content-type": "application/json",
+				/* eslint-enable */
+			},
+		}
+		const response = await axios(request)
 		return response.data
 	} catch (e) {}
 }
