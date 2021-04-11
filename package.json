@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@beam-australia/react-env": "^3.0.8",
     "@testing-library/cypress": "^7.0.1",
     "cypress": "^6.2.0",
     "eslint": "^7.16.0",
